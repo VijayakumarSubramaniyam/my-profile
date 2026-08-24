@@ -1,69 +1,64 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import Link from "next/link";
 
-export default function Home() {
+import { SiteShell } from "@/components/site-shell";
+import { getPortfolioData } from "@/data/portfolio";
+
+export const dynamic = "force-dynamic";
+
+export default async function HomePage() {
+  const portfolio = await getPortfolioData();
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            To get started, edit the{" "}
-            <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <SiteShell>
+      <section className="page-section first-section">
+        <div className="section-header">
+          <p className="eyebrow">Hello there</p>
+          <h1>About</h1>
         </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        <div className="story-grid">
+          <div className="story-card">
+            <p>{portfolio.intro}</p>
+            <p>{portfolio.story}</p>
+          </div>
+
+          <div className="services-panel">
+            <h3>What I do!</h3>
+            <div className="service-list">
+              {portfolio.services.map((service) => (
+                <div key={service.title} className="service-item">
+                  <h4>{service.title}</h4>
+                  <p>{service.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      <section className="page-section">
+        <div className="section-header row">
+          <h2>Projects</h2>
+          <Link href="/my-work" className="text-link">
+            View all <span>→</span>
+          </Link>
+        </div>
+
+        <div className="project-grid">
+          {portfolio.projects.slice(0, 6).map((project) => (
+            <article key={project.title} className="project-card">
+              <div className="project-image-wrap">
+                <img src={project.image} alt={project.title} />
+              </div>
+              <div className="project-copy">
+                <span className="project-tag">{project.category}</span>
+                <h3>{project.title}</h3>
+                <p>{project.description}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    </SiteShell>
   );
 }

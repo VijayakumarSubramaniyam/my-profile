@@ -1,0 +1,380 @@
+{
+  "profile": {
+    "name": "VIJAYA KUMAR.S",
+    "title": "UI Developer",
+    "avatar": "/assets/profile.jpeg",
+    "resumeUrl": "/assets/resume.pdf",
+    "location": "Erode, Tamilnadu",
+    "email": "vijisubramaniyam123@gmail.com",
+    "phone": "+91 824-886-4006",
+    "birthday": "April 5, 1995"
+  },
+  "socials": [
+    {
+      "label": "LinkedIn",
+      "href": "https://www.linkedin.com/in/vijaya-kumar-a1a94360/",
+      "glyph": "in"
+    },
+    {
+      "label": "GitHub",
+      "href": "https://github.com/VijayakumarSubramaniyam",
+      "glyph": "gh"
+    },
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/vijayakumar_thanvi/",
+      "glyph": "ig"
+    }
+  ],
+  "contactDetails": [
+    {
+      "label": "Phone",
+      "value": "+91 824-886-4006"
+    },
+    {
+      "label": "Email",
+      "value": "vijisubramaniyam123@gmail.com"
+    },
+    {
+      "label": "Location",
+      "value": "Erode, Tamilnadu"
+    },
+    {
+      "label": "Birthday",
+      "value": "April 5, 1995"
+    }
+  ],
+  "intro": "Above 9 years of IT experience in working in a corporate environment as a front-end UI/Web developer. Strong technical skills in complex website development including web-based applications. Experience in designing and building dynamic and user-interactive websites using JavaScript, Angular, AngularJS, and jQuery.",
+  "story": "Expertise in designing and developing interactive front-end applications using HTML5, CSS3, JavaScript, and AJAX.",
+  "services": [
+    {
+      "title": "Front-end UI Development",
+      "description": "Designing and building dynamic, responsive, and user-interactive web applications with HTML5, CSS3, JavaScript, and AJAX."
+    },
+    {
+      "title": "Angular Application Development",
+      "description": "Building interactive front-end applications with Angular, AngularJS, TypeScript, reactive forms, authentication guards, and reusable input components."
+    },
+    {
+      "title": "Responsive Website Creation",
+      "description": "Creating responsive websites and mobile-friendly modules that provide consistent experiences across devices and screen sizes."
+    },
+    {
+      "title": "Business Workflow Modules",
+      "description": "Delivering account creation, institution, order, organization, operation center, case management, and incident management modules for enterprise applications."
+    },
+    {
+      "title": "CRUD and Authentication",
+      "description": "Implementing CRUD operations, JWT authentication, role-based access, and secure authentication guards for business applications."
+    },
+    {
+      "title": "CMS and Project Delivery",
+      "description": "Creating dynamic CMS-driven websites and managing front-end projects end-to-end in collaboration with business and technical teams."
+    }
+  ],
+  "projects": [
+    {
+      "title": "FSTI Canada",
+      "category": "Wealth management",
+      "description": "Enterprise financial operations platform covering account creation, institution management, order management, organization management, and operation center modules.",
+      "image": "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=900&q=80",
+      "href": "#"
+    },
+    {
+      "title": "TKE Sales Configurator",
+      "category": "Angular web application",
+      "description": "ThyssenKrupp web application for estimating elevator implementation costs with customized inputs, dynamic reactive forms, and authentication guards.",
+      "image": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=900&q=80",
+      "href": "#"
+    },
+    {
+      "title": "DTS-REWRITE",
+      "category": "Drug testing system",
+      "description": "Drug testing system for players with Substance, Test Provider, and Test Case modules, CRUD operations, and JWT authentication.",
+      "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80",
+      "href": "#"
+    },
+    {
+      "title": "NFL-REWRITE",
+      "category": "Case management",
+      "description": "Mobile-responsive players tribunal system with new and open incident modules and role-based access for Admin and Club users.",
+      "image": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80",
+      "href": "#"
+    },
+    {
+      "title": "Sakthi Apps",
+      "category": "Delivery application",
+      "description": "Door-delivery service application for departmental stores, including the phone call order module for food, grocery, and domestic appliances.",
+      "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80",
+      "href": "#"
+    },
+    {
+      "title": "TNIT and Banking Applications",
+      "category": "CMS and financial applications",
+      "description": "Dynamic Tamil Nadu IT Department website delivered with CMS, plus GST initiation, payment transactions, and customer and bank application customization.",
+      "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=900&q=80",
+      "href": "#"
+    }
+  ],
+  "education": [
+    {
+      "period": "2015 - 2017",
+      "title": "MCA - 8.36 CGPA",
+      "subtitle": "Anna University / Erode Sengunthar Engineering College"
+    },
+    {
+      "period": "2012 - 2015",
+      "title": "BCA - 71.8%",
+      "subtitle": "Bharathiyar University / Gobi Arts and Science College"
+    },
+    {
+      "period": "2012",
+      "title": "HSC - 69.3%",
+      "subtitle": "Government Boys Higher Secondary School, Nambiyur"
+    },
+    {
+      "period": "2010",
+      "title": "SSLC - 75.2%",
+      "subtitle": "Government Boys Higher Secondary School, Nambiyur"
+    }
+  ],
+  "experience": [
+    {
+      "period": "May 2023 - Present",
+      "title": "Specialist - Software Engineering",
+      "subtitle": "LTIMindtree, Coimbatore"
+    },
+    {
+      "period": "Oct 2021 - Apr 2023",
+      "title": "Technology Analyst",
+      "subtitle": "Infosys, Chennai"
+    },
+    {
+      "period": "Nov 2019 - Oct 2021",
+      "title": "Software Engineer",
+      "subtitle": "Orion Innovation, Chennai"
+    },
+    {
+      "period": "Jan 2017 - Nov 2019",
+      "title": "Software Engineer",
+      "subtitle": "Vertace Consultants, Chennai"
+    }
+  ],
+  "technicalInterests": [
+    "Creating Responsive Website",
+    "React JS",
+    "Vue Js"
+  ],
+  "personalInformation": [
+    "April 5, 1995",
+    "31, Male, Married",
+    "601-14, Azlakapuri Street, Nambiyur (TK), Erode (DK) - 638 458"
+  ],
+  "achievements": [
+    "Employee of the month",
+    "Key Contributor Batch",
+    "Trust & Respect Batch"
+  ],
+  "skills": [
+    {
+      "group": "Front-end Skills",
+      "items": [
+        {
+          "name": "HTML",
+          "level": 95
+        },
+        {
+          "name": "CSS3",
+          "level": 90
+        },
+        {
+          "name": "JavaScript",
+          "level": 85
+        },
+        {
+          "name": "TypeScript",
+          "level": 80
+        },
+        {
+          "name": "AngularJS",
+          "level": 60
+        },
+        {
+          "name": "jQuery",
+          "level": 70
+        },
+        {
+          "name": "AJAX",
+          "level": 60
+        },
+        {
+          "name": "HTML5",
+          "level": 50
+        }
+      ]
+    },
+    {
+      "group": "Technical Interest",
+      "items": [
+        {
+          "name": "React.js",
+          "level": 90
+        },
+        {
+          "name": "Creating Responsive Website",
+          "level": 95
+        },
+        {
+          "name": "Angular",
+          "level": 80
+        },
+        {
+          "name": "Vue Js",
+          "level": 50
+        },
+        {
+          "name": "jQuery",
+          "level": 60
+        },
+        {
+          "name": "Reactive Forms",
+          "level": 70
+        },
+        {
+          "name": "JWT Authentication",
+          "level": 60
+        },
+        {
+          "name": "CRUD Operations",
+          "level": 40
+        },
+        {
+          "name": "Role-based Access",
+          "level": 60
+        },
+        {
+          "name": "Mobile Responsive Design",
+          "level": 90
+        },
+        {
+          "name": "CMS Websites",
+          "level": 50
+        },
+        {
+          "name": "Project Setup",
+          "level": 65
+        },
+        {
+          "name": "Front-end Applications",
+          "level": 85
+        }
+      ]
+    },
+    {
+      "group": "Additional Technologies",
+      "items": [
+        {
+          "name": "Git / Bash / Shells",
+          "level": 90
+        },
+        {
+          "name": "GitHub",
+          "level": 88
+        },
+        {
+          "name": "GitLab",
+          "level": 82
+        },
+        {
+          "name": "Azure",
+          "level": 68
+        },
+        {
+          "name": "CI / CD",
+          "level": 72
+        },
+        {
+          "name": "SonarQube",
+          "level": 62
+        },
+        {
+          "name": "Jenkins",
+          "level": 60
+        },
+        {
+          "name": "ESLint",
+          "level": 82
+        },
+        {
+          "name": "VS Code",
+          "level": 90
+        },
+        {
+          "name": "NPM",
+          "level": 85
+        },
+        {
+          "name": "Yarn",
+          "level": 78
+        },
+        {
+          "name": "Webpack",
+          "level": 68
+        },
+        {
+          "name": "Turbo",
+          "level": 74
+        },
+        {
+          "name": "Monorepo",
+          "level": 76
+        }
+      ]
+    },
+    {
+      "group": "Web Development Practices",
+      "items": [
+        {
+          "name": "AWS CloudFront",
+          "level": 70
+        },
+        {
+          "name": "Firebase",
+          "level": 70
+        },
+        {
+          "name": "Google Analytics",
+          "level": 72
+        },
+        {
+          "name": "GrowthBook",
+          "level": 65
+        },
+        {
+          "name": "Optimizely A/B Testing",
+          "level": 60
+        },
+        {
+          "name": "Contentful CMS",
+          "level": 78
+        },
+        {
+          "name": "Netlify CMS",
+          "level": 72
+        },
+        {
+          "name": "Netlify",
+          "level": 78
+        },
+        {
+          "name": "Vercel",
+          "level": 85
+        },
+        {
+          "name": "Zendesk",
+          "level": 60
+        }
+      ]
+    }
+  ]
+}
