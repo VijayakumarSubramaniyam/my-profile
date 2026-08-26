@@ -16,6 +16,12 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contact form email
+
+Copy `.env.example` to `.env.local` and set the SMTP credentials for the mailbox that will send contact messages. The recipient defaults to `vijisubramaniyam123@gmail.com` and can be changed in `/admin` under `Contact form recipient`.
+
+The contact form uses that admin value as `to`. `CONTACT_FROM_EMAIL` defaults to the same address, while visitors are set as `replyTo` so replies go directly to them.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.

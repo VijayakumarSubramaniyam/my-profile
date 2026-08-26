@@ -37,6 +37,7 @@ export type SkillGroup = {
 };
 
 export type PortfolioData = {
+  contactEmail: string;
   profile: {
     name: string;
     title: string;
@@ -62,6 +63,7 @@ export type PortfolioData = {
 };
 
 export const fallbackPortfolio: PortfolioData = {
+  contactEmail: "vijisubramaniyam123@gmail.com",
   profile: {
     name: "VIJAYA KUMAR.S",
     title: "UI Developer",

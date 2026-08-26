@@ -8,6 +8,7 @@ import { navItems } from "@/data/navigation";
 import type { PortfolioData } from "@/data/portfolio";
 
 const emptyPortfolio: PortfolioData = {
+  contactEmail: "",
   profile: {
     name: "",
     title: "",
@@ -61,45 +62,73 @@ function SocialIcon({ glyph }: { glyph: string }) {
 export function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname() || "/";
   const [portfolio, setPortfolio] = useState<PortfolioData>(emptyPortfolio);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     async function loadPortfolio() {
-      const res = await fetch("/api/portfolio", { cache: "no-store" });
-      const data = (await res.json()) as PortfolioData;
-      setPortfolio(data);
+      try {
+        const res = await fetch("/api/portfolio", { cache: "no-store" });
+        const data = (await res.json()) as PortfolioData;
+        setPortfolio(data);
+      } finally {
+        setIsLoading(false);
+      }
     }
 
     loadPortfolio();
   }, []);
 
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
+
   return (
     <main className="shell">
       <div className="app-frame">
-        <aside className="sidebar">
+        <aside className="sidebar" aria-busy={isLoading}>
           <div className="profile-card">
             <div className="avatar-wrap">
-              <img src={portfolio.profile.avatar} alt={portfolio.profile.name} />
+              {isLoading ? <div className="skeleton avatar-skeleton" /> : <img src={portfolio.profile.avatar} alt={portfolio.profile.name} />}
             </div>
             <div className="profile-meta">
-              <h2>{portfolio.profile.name}</h2>
-              <p className="role">{portfolio.profile.title}</p>
+              {isLoading ? (
+                <>
+                  <div className="skeleton name-skeleton" />
+                  <div className="skeleton role-skeleton" />
+                </>
+              ) : (
+                <>
+                  <h2>{portfolio.profile.name}</h2>
+                  <p className="role">{portfolio.profile.title}</p>
+                </>
+              )}
             </div>
 
             <div className="socials" aria-label="Social media links">
-              {portfolio.socials.map((social) => (
-                <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={social.label}>
-                  <SocialIcon glyph={social.glyph} />
-                </a>
-              ))}
+              {isLoading
+                ? [1, 2, 3].map((item) => <span key={item} className="skeleton social-skeleton" />)
+                : portfolio.socials.map((social) => (
+                    <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={social.label}>
+                      <SocialIcon glyph={social.glyph} />
+                    </a>
+                  ))}
             </div>
 
             <div className="info-list">
-              {portfolio.contactDetails.map((detail) => (
-                <div key={detail.label} className="info-item">
-                  <span className="info-label">{detail.label}</span>
-                  <span className="info-value">{detail.value}</span>
-                </div>
-              ))}
+              {isLoading
+                ? [1, 2, 3, 4].map((item) => (
+                    <div key={item} className="info-item skeleton-info-item">
+                      <span className="skeleton info-label-skeleton" />
+                      <span className="skeleton info-value-skeleton" />
+                    </div>
+                  ))
+                : portfolio.contactDetails.map((detail) => (
+                    <div key={detail.label} className="info-item">
+                      <span className="info-label">{detail.label}</span>
+                      <span className="info-value">{detail.value}</span>
+                    </div>
+                  ))}
             </div>
           </div>
         </aside>
@@ -117,6 +146,33 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 </Link>
               ))}
             </nav>
+
+            <button
+              className="mobile-menu-button"
+              type="button"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setIsMenuOpen((open) => !open)}
+            >
+              <span className="menu-icon" aria-hidden="true"><span /><span /><span /></span>
+              <span>{isMenuOpen ? "Close" : "Menu"}</span>
+            </button>
+
+            {isMenuOpen && (
+              <div className="mobile-drawer" id="mobile-navigation">
+                <nav aria-label="Mobile navigation">
+                  {navItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      className={pathname === item.href ? "nav-link active" : "nav-link"}
+                    >
+                      {item.label}
+                    </Link>
+                  ))}
+                </nav>
+              </div>
+            )}
 
             <a className="primary-button" href={portfolio.profile.resumeUrl} download="Vijaya-Kumar-S-Resume.pdf">
               Download Resume

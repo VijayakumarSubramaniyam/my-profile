@@ -7,6 +7,7 @@ import type { PortfolioData } from "@/data/portfolio";
 export const dynamic = "force-dynamic";
 
 const emptyPortfolio: PortfolioData = {
+  contactEmail: "",
   profile: {
     name: "",
     title: "",
@@ -109,6 +110,16 @@ export default function AdminPage() {
                     profile: { ...portfolio.profile, email: event.target.value },
                   })
                 }
+              />
+            </label>
+
+            <label>
+              <span>Contact form recipient</span>
+              <input
+                type="email"
+                required
+                value={portfolio.contactEmail || portfolio.profile.email}
+                onChange={(event) => setPortfolio({ ...portfolio, contactEmail: event.target.value })}
               />
             </label>
 
