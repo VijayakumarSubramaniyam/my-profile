@@ -64,6 +64,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
   const [portfolio, setPortfolio] = useState<PortfolioData>(emptyPortfolio);
   const [isLoading, setIsLoading] = useState(true);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
 
   useEffect(() => {
     async function loadPortfolio() {
@@ -88,6 +89,17 @@ export function SiteShell({ children }: { children: ReactNode }) {
       <div className="app-frame">
         <aside className="sidebar" aria-busy={isLoading}>
           <div className="profile-card">
+            <button
+              className="mobile-menu-button"
+              type="button"
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              onClick={() => setIsMenuOpen((open) => !open)}
+            >
+              <span className="menu-icon" aria-hidden="true"><span /><span /><span /></span>
+            </button>
+
             <div className="avatar-wrap">
               {isLoading ? <div className="skeleton avatar-skeleton" /> : <img src={portfolio.profile.avatar} alt={portfolio.profile.name} />}
             </div>
@@ -105,32 +117,61 @@ export function SiteShell({ children }: { children: ReactNode }) {
               )}
             </div>
 
-            <div className="socials" aria-label="Social media links">
-              {isLoading
-                ? [1, 2, 3].map((item) => <span key={item} className="skeleton social-skeleton" />)
-                : portfolio.socials.map((social) => (
-                    <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={social.label}>
-                      <SocialIcon glyph={social.glyph} />
-                    </a>
-                  ))}
-            </div>
+            <button
+              className="profile-details-button"
+              type="button"
+              aria-expanded={isDetailsOpen}
+              aria-controls="profile-details"
+              onClick={() => setIsDetailsOpen((open) => !open)}
+            >
+              {isDetailsOpen ? "Hide details" : "More details"}
+              <span aria-hidden="true">{isDetailsOpen ? "↑" : "↓"}</span>
+            </button>
 
-            <div className="info-list">
-              {isLoading
-                ? [1, 2, 3, 4].map((item) => (
-                    <div key={item} className="info-item skeleton-info-item">
-                      <span className="skeleton info-label-skeleton" />
-                      <span className="skeleton info-value-skeleton" />
-                    </div>
-                  ))
-                : portfolio.contactDetails.map((detail) => (
-                    <div key={detail.label} className="info-item">
-                      <span className="info-label">{detail.label}</span>
-                      <span className="info-value">{detail.value}</span>
-                    </div>
-                  ))}
+            <div className={isDetailsOpen ? "profile-details is-open" : "profile-details"} id="profile-details">
+              <div className="socials" aria-label="Social media links">
+                {isLoading
+                  ? [1, 2, 3].map((item) => <span key={item} className="skeleton social-skeleton" />)
+                  : portfolio.socials.map((social) => (
+                      <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={social.label}>
+                        <SocialIcon glyph={social.glyph} />
+                      </a>
+                    ))}
+              </div>
+
+              <div className="info-list">
+                {isLoading
+                  ? [1, 2, 3, 4].map((item) => (
+                      <div key={item} className="info-item skeleton-info-item">
+                        <span className="skeleton info-label-skeleton" />
+                        <span className="skeleton info-value-skeleton" />
+                      </div>
+                    ))
+                  : portfolio.contactDetails.map((detail) => (
+                      <div key={detail.label} className="info-item">
+                        <span className="info-label">{detail.label}</span>
+                        <span className="info-value">{detail.value}</span>
+                      </div>
+                    ))}
+              </div>
             </div>
           </div>
+
+          {isMenuOpen && (
+            <div className="mobile-drawer" id="mobile-navigation">
+              <nav aria-label="Mobile navigation">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={pathname === item.href ? "nav-link active" : "nav-link"}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          )}
         </aside>
 
         <div className="content-panel">
@@ -146,33 +187,6 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 </Link>
               ))}
             </nav>
-
-            <button
-              className="mobile-menu-button"
-              type="button"
-              aria-expanded={isMenuOpen}
-              aria-controls="mobile-navigation"
-              onClick={() => setIsMenuOpen((open) => !open)}
-            >
-              <span className="menu-icon" aria-hidden="true"><span /><span /><span /></span>
-              <span>{isMenuOpen ? "Close" : "Menu"}</span>
-            </button>
-
-            {isMenuOpen && (
-              <div className="mobile-drawer" id="mobile-navigation">
-                <nav aria-label="Mobile navigation">
-                  {navItems.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className={pathname === item.href ? "nav-link active" : "nav-link"}
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
-                </nav>
-              </div>
-            )}
 
             <a className="primary-button" href={portfolio.profile.resumeUrl} download="Vijaya-Kumar-S-Resume.pdf">
               Download Resume

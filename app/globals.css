@@ -178,6 +178,17 @@ textarea {
   letter-spacing: -0.06em;
 }
 
+.profile-details-button {
+  display: none;
+}
+
+.profile-details {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 18px;
+}
+
 .role {
   font-size: 0.95rem;
   color: var(--muted);
@@ -818,6 +829,60 @@ textarea::placeholder {
     padding: 18px;
   }
 
+  .profile-card {
+    display: grid;
+    grid-template-columns: 44px 64px minmax(0, 1fr);
+    align-items: center;
+    column-gap: 12px;
+    row-gap: 14px;
+  }
+
+  .profile-card .avatar-wrap {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .profile-meta {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .avatar-wrap {
+    width: 64px;
+    align-self: center;
+    border-radius: 12px;
+  }
+
+  .avatar-wrap img,
+  .avatar-skeleton {
+    height: 64px;
+  }
+
+  .profile-meta {
+    min-width: 0;
+    text-align: left;
+  }
+
+  .profile-meta h2 {
+    font-size: 1.25rem;
+    line-height: 1.1;
+  }
+
+  .role-skeleton {
+    margin-left: 0;
+  }
+
+  .profile-details-button,
+  .profile-details {
+    grid-column: 1 / -1;
+  }
+
+  .mobile-menu-button {
+    grid-column: 1;
+    width: 44px;
+    padding: 0;
+  }
+
   .topbar,
   .section-header,
   .two-columns {
@@ -831,6 +896,33 @@ textarea::placeholder {
 
   .desktop-nav {
     display: none;
+  }
+
+  .profile-details-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 42px;
+    padding: 0 16px;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: rgba(255, 255, 255, 0.32);
+    color: var(--accent-blue);
+    cursor: pointer;
+    font-weight: 700;
+  }
+
+  .profile-details-button:hover {
+    border-color: var(--accent-blue);
+  }
+
+  .profile-details {
+    display: none;
+  }
+
+  .profile-details.is-open {
+    display: flex;
   }
 
   .mobile-menu-button {
@@ -867,11 +959,11 @@ textarea::placeholder {
 
   .mobile-drawer {
     position: absolute;
-    top: 58px;
-    right: 0;
+    top: 84px;
+    left: 18px;
     z-index: 3;
     display: block;
-    width: min(250px, 100%);
+    width: min(250px, calc(100% - 36px));
     padding: 10px;
     border: 1px solid var(--line);
     border-radius: 16px;
