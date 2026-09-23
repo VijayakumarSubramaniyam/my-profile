@@ -133,7 +133,7 @@ export function SiteShell({ children }: { children: ReactNode }) {
                 {isLoading
                   ? [1, 2, 3].map((item) => <span key={item} className="skeleton social-skeleton" />)
                   : portfolio.socials.map((social) => (
-                      <a key={social.label} href={social.href} target="_blank" rel="noreferrer" aria-label={social.label}>
+                      <a key={social.label} className={`social-link social-${social.glyph}`} href={social.href} target="_blank" rel="noreferrer" aria-label={social.label}>
                         <SocialIcon glyph={social.glyph} />
                       </a>
                     ))}
